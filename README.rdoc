@@ -1,0 +1,36 @@
+== README
+
+- rails new TLLrails -d postgresql
+
+- initial commit and remote add to respository
+ 
+- gco -b setup
+  - gems:
+    - remove coffeescript
+    - add sorcery!
+    - add bootstrap
+    https://github.com/NoamB/sorcery/wiki/Simple-Password-Authentication
+			- rake db:create
+    	-	rails g sorcery:install (creates model and migration)
+			- check the migration is how you want then:
+				- rake db:migrate
+			- rails generate controller user***s*** new show index create
+			- add strong params in user controller:
+				  def user_params
+						params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  				end
+  		- add validations to user model:
+  			### app/models/user.rb
+				class User < ActiveRecord::Base
+				  authenticates_with_sorcery!
+
+				  validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
+				  validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
+				  validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
+
+				  validates :email, uniqueness: true
+				end
+			- add routes to controller
+			- create new form for User
+
+			**** had to rename a bunch of shit to users instead of user ***
