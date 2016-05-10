@@ -7,18 +7,26 @@
 - gco -b setup
   - gems:
     - remove coffeescript
-    - add sorcery!
-    - add bootstrap
-    https://github.com/NoamB/sorcery/wiki/Simple-Password-Authentication
+    - add sorcery!, follow directions here:
+    	https://github.com/NoamB/sorcery/wiki/Simple-Password-Authentication
+    - add bootstrap, follow diections here:
+    	https://github.com/twbs/bootstrap-rubygem
+
 			- rake db:create
+
     	-	rails g sorcery:install (creates model and migration)
+
 			- check the migration is how you want then:
 				- rake db:migrate
-			- rails generate controller user***s*** new show index create
+
+
+			- rails generate controller users new show index create
+
 			- add strong params in user controller:
 				  def user_params
 						params.require(:user).permit(:name, :email, :password, :password_confirmation)
   				end
+
   		- add validations to user model:
   			### app/models/user.rb
 				class User < ActiveRecord::Base
@@ -31,6 +39,6 @@
 				  validates :email, uniqueness: true
 				end
 			- add routes to controller
-			- create new form for User
 
-			**** had to rename a bunch of shit to users instead of user ***
+			- create new form for User
+			 -- run it and test to see if works
