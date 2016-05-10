@@ -10,7 +10,7 @@
 
 <div id="nav">
     <% if current_user %>
-      <p>Logged in as <%= current_user.id %> </p>
+      <p>Logged in as <%= current_user.email %> </p>
       <%= link_to "Logout", :logout, method: :post %>
     <% else %>
     	<p>Not Logged In</p>

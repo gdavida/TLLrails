@@ -49,4 +49,31 @@
 					resources :sessions, only [:new, :create, :destroy]
 					get 'login' => 'sessions#new', :as => :login
 					post 'logout' => 'sessions#destroy', :as => :logout
+				- add root : 
+					- root :to => 'users#index'
+				- add to application.html.erb:
+					- <div id="nav">
+					    <% if current_user %>
+					      <p>Logged in as <%= current_user.email %> </p>
+					      <%= link_to "Logout", :logout, method: :post %>
+					    <% else %>
+					    	<p>Not Logged In</p>
+					      <%= link_to "Register", new_user_path %> |
+					      <%= link_to "Login", :login %>
+					    <% end %>
+					  </div>
+				- create form for login session/new.html.erb:
+						<%= form_tag sessions_path, :method => :post do %>
+					  <div class="field">
+					    <%= label_tag :email %><br />
+					    <%= text_field_tag :email %>
+					  </div>
+					  <div class="field">
+					    <%= label_tag :password %><br />
+					    <%= password_field_tag :password %>
+					  </div>
+					  <div class="actions">
+					    <%= submit_tag "Login" %>
+					  </div>
+					<% end %>
 
