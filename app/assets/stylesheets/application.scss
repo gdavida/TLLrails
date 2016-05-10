@@ -13,5 +13,72 @@
  *= require_tree .
  *= require_self
  */
-
+  
  @import "bootstrap";
+/*
+* {
+	outline: 1px solid red;
+}*/
+
+
+
+/* - - - - - - - - - */
+/*       NAVBAR      */
+/* - - - - - - - - - */
+
+
+.navbar {
+	padding: 5px 10px 5px 10px;
+	height: 50px;
+}
+
+.nav-link.log {
+	width: 160px;
+}
+
+.logStatus {
+	font-size: 11px;
+	width: 160px;
+	text-align: right;
+	padding-bottom: 3px;
+}
+
+.logoutSessionDestroy {
+	font-size: 11px;
+	width: 160px;
+	position: absolute;
+	bottom: 4px;
+	text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* - - - - - - - - - */
+/*       STARTUP     */
+/* - - - - - - - - - */
+
+.greenBkgd {
+	background: url("http://www.toylendinglibrary.com/wp-content/uploads/2015/09/greenBkgd.jpg");
+	background-size: 100%;
+	background-repeat:no-repeat;
+	max-width: 100%;
+	height: auto;
+}
+
+.TLLmainLogo img {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.TLLmainLogo h1 {
+	text-align: center;
+}

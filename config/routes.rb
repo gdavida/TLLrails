@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get 'startup/index'
 
   root :to => 'sessions#new'
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :startup, only: [:index]
 
   get 'login' => 'sessions#new', :as => :login
   post 'logout' => 'sessions#destroy', :as => :logout
