@@ -7,10 +7,13 @@ class SessionsController < ApplicationController
 
   def create
   	@user = login(params[:email], params[:password])
+    puts "about to create and run if"
     if @user
+      puts "should redirect"
       redirect_back_or_to(:users, notice: 'Login successful')
     else
       flash.now[:alert] = 'Login failed'
+      puts "login failed"
       render action: 'new'
     end
   end
