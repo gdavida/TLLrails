@@ -5,3 +5,9 @@ one:
   toys_id: 2
   pieces: 12
 
+
+two:
+  name: "A2"
+  toys_id: 1
+  pieces: 12
+

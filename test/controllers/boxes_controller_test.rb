@@ -6,6 +6,9 @@
 #     assert_response :success
 #   end
 
+
+
+# use two instead of on
 #   test "should get create" do
 #     get :create
 #     assert_response :success

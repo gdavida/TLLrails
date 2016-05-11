@@ -1,2 +1,9 @@
-<h1>Boxes#show</h1>
-<p>Find me in app/views/boxes/show.html.erb</p>
+<h1>Boxes show</h1>
+
+<h4><%= @box.name %></h4>
+<p><%= @box.toys_id %></p>
+<p><%= @box.pieces %></p>
+
+
+<p><%= link_to "Edit Box", edit_box_path(@box) %></p>
+<p><%= link_to "All Boxes", :boxes %></p>

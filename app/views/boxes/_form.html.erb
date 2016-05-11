@@ -1,0 +1,33 @@
+<%= form_for @box do |b| %>
+
+<div>
+<% if b.object.errors.any?%>
+    <% b.object.errors.full_messages.each do |x|%>
+      <li>Error: <%= x %></li>
+    <% end %>
+      <li>Box info was not saved</li>
+  <% end %>
+  </div>
+
+  <div>
+    <div>
+      <%= b.label :name %>
+    </div>
+    <div>
+      <%= b.text_field :name %>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <%= b.label :pieces %>
+    </div>
+    <div>
+      <%= b.text_field :pieces %>
+    </div>
+  </div>
+
+  <div>
+      <%= b.submit %>
+  </div>
+  <% end %>

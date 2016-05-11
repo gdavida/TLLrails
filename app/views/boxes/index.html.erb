@@ -1,2 +1,22 @@
-<h1>Boxes#index</h1>
-<p>Find me in app/views/boxes/index.html.erb</p>
+<h1>Boxes index</h1>
+
+<div>
+			<p>Search boxes by:</p>
+</div>
+
+<div>
+	<% if flash[:notice] %>
+	  <div class="flash notice row">
+	    <p><%= flash[:notice] %></p>
+	  </div>
+	<% end %>
+</div>
+
+<div class="container">
+
+  <% if @boxes.any? %>
+    <% @boxes.each do |b| %>
+      <p>Name: <%= link_to b.name, box_path(b) %></p>
+    <% end %>
+  <% end %>
+</div>
