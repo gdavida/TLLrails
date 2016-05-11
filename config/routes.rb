@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :startup, only: [:index]
   resources :toys
   resources :boxes
+  resources :locations
 
   get 'login' => 'sessions#new', :as => :login
   post 'logout' => 'sessions#destroy', :as => :logout

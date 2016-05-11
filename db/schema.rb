@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(version: 20160510210535) do
   end
 
   create_table "toys", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",         null: false
     t.string   "upc"
     t.integer  "age_group_id"
     t.integer  "box_id"
-    t.integer  "pieces"
+    t.integer  "pieces",       null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
