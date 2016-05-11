@@ -110,3 +110,45 @@
 					<% end %>
 				- add
 
+
+
+
+-------------------------------
+##CONTROLLER TESTS
+1. Add these lines to your `test_helper.rb`:
+
+```class ActiveSupport::TestCase
+  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+  fixtures :all
+
+  # Add more helper methods to be used by all tests here...
+end
+
+class ActionController::TestCase
+  include Sorcery::TestHelpers::Rails::Integration
+  include Sorcery::TestHelpers::Rails::Controller
+end
+```
+
+This lets you use the Sorcery test-helpers for controller and integration tests.
+
+2. In tests where logging in is necessary, do something like this:
+
+```@user = users(:default_user)
+login_user(user=@user, route=login_path)
+```
+
+This assumes that in `test/fixtures/users.yml` you've defined a `default_user` fixture, but you can easily replace that top line with something like this:
+
+```@user = User.create!(email: "andrew@andrew.com", password: "andrew", password_confirmation: "andrew")
+```
+
+If you want to define a fixture, it should look sort of like the fixture here: https://github.com/NoamB/sorcery/wiki/Testing-Rails (the very top item), though you might not need an 'activation_state'.
+
+Here's the fixture I've used:
+
+```# test/fixtures/users.yml
+default_user: 
+  email: "default_user@example.com"
+  salt: <%= salt = "asdasdastr4325234324sdfds" %>
+  crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("secret", salt) %>

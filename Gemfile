@@ -28,6 +28,9 @@ gem 'sorcery'
 # bootstrap css
 # https://github.com/twbs/bootstrap-rubygem
 gem 'bootstrap', '~> 4.0.0.alpha3'
+# bootstrap rails forms
+# https://github.com/bootstrap-ruby/rails-bootstrap-forms
+gem 'bootstrap_form'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
