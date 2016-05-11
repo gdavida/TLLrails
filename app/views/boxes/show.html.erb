@@ -1,7 +1,7 @@
 <h1>Boxes show</h1>
 <div class="row">
 	<h4><%= @box.name %></h4>
-		<% @toys.each do |t| %>
+		<% @toys.where(box_id:@box.id).find_each do |t| %>
 	  	<div class="toyInBoxTags">
 	      <div class="col-xs-3">
 	      	<img class="img-responsive" src="<%= t.toy_image %>"style="max-width:80px;">
