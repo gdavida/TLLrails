@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root :to => 'sessions#new'
 
   resources :users
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   resources :toys
   resources :boxes
   resources :locations
+  resources :age_groups
 
   get 'login' => 'sessions#new', :as => :login
   post 'logout' => 'sessions#destroy', :as => :logout
