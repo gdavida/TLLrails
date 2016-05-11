@@ -3,6 +3,7 @@ class CreateToys < ActiveRecord::Migration
     create_table :toys do |t|
       t.string :name, null: false
       t.string :upc
+      t.string :toy_image
       t.integer :age_group_id
       t.integer :box_id
       t.integer :pieces, null: false

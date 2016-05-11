@@ -1,9 +1,17 @@
 <h1>Boxes show</h1>
-
-<h4><%= @box.name %></h4>
-<p><%= @box.toys_id %></p>
-<p><%= @box.pieces %></p>
-
+<div class="row">
+	<h4><%= @box.name %></h4>
+		<% @toys.each do |t| %>
+	  	<div class="toyInBoxTags">
+	      <div class="col-xs-3">
+	      	<img class="img-responsive" src="<%= t.toy_image %>"style="max-width:80px;">
+	      	<p><%= t.name %></p>
+	      	<p><%= t.pieces %> pieces</p>
+	      </div>
+	    </div>
+	  <% end %>
+	<p>Total Pieces: <%= @box.pieces %></p>
+</div>
 
 <p><%= link_to "Edit Box", edit_box_path(@box) %></p>
 <p><%= link_to "All Boxes", :boxes %></p>
