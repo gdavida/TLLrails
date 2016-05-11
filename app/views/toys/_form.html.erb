@@ -1,0 +1,41 @@
+<%= form_for @toy do |t| %>
+
+<div>
+  <% if t.object.errors.any?%>
+    <% t.object.errors.full_messages.each do |x|%>
+      <li>Error: <%= x %></li>
+    <% end %>
+      <li>Toy info was not saved</li>
+  <% end %>
+</div>
+
+  <div>
+    <div>
+      <%= t.label :name %>
+    </div>
+    <div>
+      <%= t.text_field :name %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <%= t.label :upc %>
+    </div>
+    <div>
+      <%= t.text_field :ups %>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <%= t.label :pieces %>
+    </div>
+    <div>
+      <%= t.text_field :pieces %>
+    </div>
+  </div>
+
+  <div>
+      <%= t.submit %>
+  </div>
+  <% end %>

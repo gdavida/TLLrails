@@ -1,2 +1,22 @@
-<h1>Toys#index</h1>
-<p>Find me in app/views/toys/index.html.erb</p>
+<h1>Toys index</h1>
+
+<div>
+			<p>Search toys by:</p>
+</div>
+
+<div>
+	<% if flash[:notice] %>
+	  <div class="flash notice row">
+	    <p><%= flash[:notice] %></p>
+	  </div>
+	<% end %>
+</div>
+
+<div class="container">
+
+  <% if @toys.any? %>
+    <% @toys.each do |t| %>
+      <p>Name: <%= link_to t.name, toy_path(t) %></p>
+    <% end %>
+  <% end %>
+</div>

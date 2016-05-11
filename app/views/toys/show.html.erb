@@ -1,2 +1,11 @@
-<h1>Toys#show</h1>
-<p>Find me in app/views/toys/show.html.erb</p>
+<h1>Toys show</h1>
+
+<h4><%= @toy.name %></h4>
+<p><%= @toy.upc %></p>
+<p><%= @toy.pieces %></p>
+<p><%= @toy.age_group_id %></p>
+<p><%= @toy.box_id %></p>
+
+
+<p><%= link_to "Edit Toy", edit_toy_path(@toy) %></p>
+<p><%= link_to "All Toys", :toys %></p>

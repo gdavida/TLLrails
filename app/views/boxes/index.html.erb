@@ -1,7 +1,7 @@
 <h1>Boxes index</h1>
 
 <div>
-			<p>Search boxes by:</p>
+	<p>Search boxes by:</p>
 </div>
 
 <div>
@@ -13,7 +13,6 @@
 </div>
 
 <div class="container">
-
   <% if @boxes.any? %>
     <% @boxes.each do |b| %>
       <p>Name: <%= link_to b.name, box_path(b) %></p>
