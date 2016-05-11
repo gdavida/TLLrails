@@ -1,0 +1,6 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  branch_name: "Downtown"
+  address: "123 S Main St"
+  contact_name: "Barb"
