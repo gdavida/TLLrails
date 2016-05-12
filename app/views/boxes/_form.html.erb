@@ -1,4 +1,5 @@
 <%= form_for @box do |b| %>
+  <div class="form-control col-xs-12">
 
 <div>
   <% if b.object.errors.any?%>
@@ -18,16 +19,40 @@
     </div>
   </div>
 
-  <div>
-    <div>
-      <%= b.label :pieces %>
-    </div>
-    <div>
-      <%= b.text_field :pieces %>
-    </div>
+
+<!-- DROPDOWN PICK AN AGE GROUP -->
+    <select id="age_group" name="box[age_group_id]">
+      <option value="" disabled selected>
+        Which Age Group?
+      </option>
+        <% @age_groups.each do |a| %>
+          <option value="<%= a.id %>">
+            <%= a.age %>
+          </option>
+      <% end %>
+    </select>
+
+  <div class="checkbox">
+    <% @toys.each do |t| %>
+      <label class="checkbox">
+        <input name="box[toys_id][]" type="checkbox" id="<%= t.name %>" value="<%= t.id %>">
+          <%= t.name %>
+      </label>
+    <% end %>
   </div>
 
-  <div>
-      <%= b.submit %>
-  </div>
+
+    <div>
+      <div>
+        <%= b.label :pieces %>
+      </div>
+      <div>
+        <%= b.text_field :pieces %>
+      </div>
+    </div>
+
+    <div>
+        <%= b.submit %>
+    </div>
+  </div><br><br>
 <% end %>

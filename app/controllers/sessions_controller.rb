@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     puts "about to create and run if"
     if @user
       puts "should redirect"
-      redirect_back_or_to(:users, notice: 'Login successful')
+      redirect_back_or_to(:boxes, notice: 'Login successful')
     else
       flash.now[:alert] = 'Login failed'
       puts "login failed"
