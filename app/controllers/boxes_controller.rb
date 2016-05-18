@@ -32,6 +32,8 @@ class BoxesController < ApplicationController
     @box = Box.find_by_id(params[:id])
     @toy = Toy.find_by_id(params[:id])
     @toys = Toy.all
+    @location = Location.find_by_id(params[:id])
+    @locations = Location.all
   end
 
   def update

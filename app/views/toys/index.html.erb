@@ -23,7 +23,9 @@
  				<li class="collection-item">
           <div><%= link_to t.name, toy_path(t) %>
 	          <a href="#!" class="secondary-content">
+            <% if t.age_group_id? %>
 	          	<%= t.age_group.age %>
+            <% end %>
 	          </a>
           </div>
         </li>

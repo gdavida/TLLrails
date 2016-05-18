@@ -1,9 +1,8 @@
-<%= form_for @box do |b| %>
-  <div class="form-control col-xs-12">
+<%= form_for @box do |f| %>
 
 <div>
-  <% if b.object.errors.any?%>
-    <% b.object.errors.full_messages.each do |x|%>
+  <% if f.object.errors.any?%>
+    <% f.object.errors.full_messages.each do |x|%>
       <li>Error: <%= x %></li>
     <% end %>
       <li>Box info was not saved</li>
@@ -17,9 +16,6 @@
 
 
 
-<% end %>
-
-<%= form_for @box do |f| %>
   <div class="row">
     <%= f.label :name %>:
     <%= f.text_field :name %><br />

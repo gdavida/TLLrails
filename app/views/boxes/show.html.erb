@@ -1,17 +1,89 @@
-<h1>Boxes show</h1>
-<div class="row">
-	<h4><%= @box.name %></h4>
-		<% @toys.where(box_id:@box.id).find_each do |t| %>
-	  	<div class="toyInBoxTags">
-	      <div class="col-xs-3">
-	      	<img class="img-responsive" src="<%= t.toy_image %>"style="max-width:80px;">
-	      	<p><%= t.name %></p>
-	      	<p><%= t.pieces %> pieces</p>
-	      </div>
-	    </div>
-	  <% end %>
-	<p>Total Pieces: <%= @box.pieces %></p>
+<div class="container">
+  <div class="cardRow">
+    <!--Rotating card-->
+    <div class="col-xs-12 col-md-4">
+      <div class="card-wrapper ">
+        <div id="card-1" class="card-rotating effect__click">
+
+        	<!--Front Side-->
+          <div class="face card-rotating__front z-depth-1">
+	          <div class="card-up boxShowCardUp">
+	          	<img src="../images/orangeToyBkgd.jpg" class="img-responsive">
+	          </div>
+            <div class="avatar">
+              <img src="<%= @toy.toy_image %>" class="img-circle img-responsive">
+            </div>
+            <h4><%= @toy.age_group.age %></h4>
+            <h5><%= @toy.pieces %> pieces</h5>                              
+            <!--Triggering button-->
+            <div class="col-xs-12">
+              <div class="sm-container" id="cardBottomIcons">
+                <ul class="list-inline card-sm cardFrontReverseIcon ">
+                	<li>
+                		<a class="rotate-btn icons-sm darkGray" data-card="card-1"><i class="fa fa-undo"></i></a>
+                	</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+                            <!--/.Front Side-->
+
+                            <!--Back Side-->
+          <div class="face card-rotating__back z-depth-1">
+            <h4 class="cardReverseBoxName"><%= @box.name %></h4>
+            <p class="card-content text-center"><%= @location.branch_name %>
+            <br><span>Checked-In</span></p>
+            <hr id="coloredHr">
+            <div class="col-xs-12">
+              <% @toys.where(box_id:@box.id).find_each do |t| %>
+                <div class="col-xs-4">
+                	<img style="border-radius:50%; max-width:40px; margin-right: 20px" src="<%= t.toy_image %>">
+                </div>
+	              <div class="col-xs-8">
+	                <%= t.name %><br><span class="smallPiecesText">(<%= t.pieces %> pieces)</span>
+	              </div>
+	      				<% end %>
+            </div>
+            <div class="col-xs-12 reverseCardAddToy">
+              <div class="col-xs-4">
+              	<a class="icons-sm darkGray addToyIcon">
+              		<i class="fa fa-plus-circle"></i>
+              	</a>
+              </div>
+            	<div class="col-xs-8 darkGray addToyText">
+            		Add a Toy
+            	</div>
+            </div>
+
+            <!--Triggering button-->
+            <div class="col-xs-12">
+              <div class="sm-container" id="cardBottomIcons">
+                <ul class="list-inline card-sm">
+                  <li> <span>
+										<%= link_to edit_box_path(@box) do %>
+											<i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+										<% end %>
+										<%= link_to box_path(@box), method: :delete do %>
+									  	<i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+										<% end %>
+										</span>
+                  </li> 
+                  <li>
+                  	<a class="rotate-btn icons-sm darkGray" data-card="card-1">
+                  		<i class="fa fa-undo"></i>
+                  	</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--/.Back Side-->
+        </div>
+      </div>
+    </div>
+<!--/.Rotating card-->
 </div>
 
-<p><%= link_to "Edit Box", edit_box_path(@box) %></p>
-<p><%= link_to "All Boxes", :boxes %></p>
+</div>
+
+
