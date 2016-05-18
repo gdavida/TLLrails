@@ -10,49 +10,32 @@
   <% end %>
 </div>
 
-  <div>
-    <div>
-      <%= b.label :name %>
-    </div>
-    <div>
-      <%= b.text_field :name %>
-    </div>
-  </div>
 
 
 <!-- DROPDOWN PICK AN AGE GROUP -->
-    <select id="age_group" name="box[age_group_id]">
-      <option value="" disabled selected>
-        Which Age Group?
-      </option>
-        <% @age_groups.each do |a| %>
-          <option value="<%= a.id %>">
-            <%= a.age %>
-          </option>
-      <% end %>
-    </select>
 
-  <div class="checkbox">
-    <% @toys.each do |t| %>
-      <label class="checkbox">
-        <input name="box[toys_id][]" type="checkbox" id="<%= t.name %>" value="<%= t.id %>">
-          <%= t.name %>
-      </label>
-    <% end %>
+
+
+
+<% end %>
+
+<%= form_for @box do |f| %>
+  <div class="row">
+    <%= f.label :name %>:
+    <%= f.text_field :name %><br />
+  </div>
+  <div class="row">
+    <%= select("box", "age_group_id", AgeGroup.all.collect {|b| [ b.age, b.id ] },{:include_blank => true}) %>
+  </div>
+  <div class="row">
+    <%= select("toy", "box_id", Box.all.collect {|b| [ b.name, b.id ] },{:include_blank => true}) %>
+  </div>
+  <div class="row">
+    <%= f.label :pieces %>:
+    <%= f.text_field :pieces %><br />
   </div>
 
-
-    <div>
-      <div>
-        <%= b.label :pieces %>
-      </div>
-      <div>
-        <%= b.text_field :pieces %>
-      </div>
-    </div>
-
-    <div>
-        <%= b.submit %>
-    </div>
-  </div><br><br>
+  <%= f.submit %>
 <% end %>
+
+   

@@ -1,9 +1,3 @@
-<h1>Boxes index</h1>
-
-<div>
-	<p>Search boxes by:</p>
-</div>
-
 <div>
 	<% if flash[:notice] %>
 	  <div class="flash notice row">
@@ -13,9 +7,22 @@
 </div>
 
 <div class="container">
+  <ul class="collection with-header">
+    <li class="collection-header">
+      <h4>Toys Inventory</h4>
+    </li>
+
   <% if @boxes.any? %>
     <% @boxes.each do |b| %>
-      <p>Name: <%= link_to b.name, box_path(b) %></p>
+ 				<li class="collection-item">
+          <div><%= link_to b.name, box_path(b) %>
+	          <a href="#!" class="secondary-content">
+	          	<%= b.age_group.age %>
+	          </a>
+	          <i class="fa fa-circle left" style="color:red" aria-hidden="true"></i>
+          </div>
+        </li>
     <% end %>
   <% end %>
+  </ul>
 </div>

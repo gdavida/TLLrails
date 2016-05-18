@@ -1,11 +1,109 @@
-<h1>Toys show</h1>
+            <div class="cardRow row">
+                <!--Rotating card-->
+                <div class="col-xs-12 col-md-4">
+                    <div class="card-wrapper ">
+                        <div id="card-1" class="card-rotating effect__click">
 
-<h4><%= @toy.name %></h4>
-<img src=<%= @toy.toy_image %> style="max-width:150px;">
-<p>UPC: <%= @toy.upc %></p>
-<p>Pieces: <%= @toy.pieces %></p>
-<p>Age: <%= @toy.age_group.age %></p>
-<p>Box: <%= @toy.box.name%></p>
+                            <!--Front Side-->
+                            <div class="face card-rotating__front z-depth-1">
+                                <div class="card-up boxShowCardUp">
+                                    <img src="<%= @toy.toy_image %>" style="width: 450px; margin-left: -50px;" class="">
+                                </div>
+                                <div class="avatar">
+                                    <img src="<%= @toy.toy_image %>"  class="img-circle img-responsive">
+                                </div>
+                                <h4>Flexi-Loop</h4>
+                                <h5>0 - 3 months</h5>
+
+                                <!--Triggering button-->
+                                
+                                <!--Triggering button-->
+                                <div class="col-xs-12">
+                                    <div class="sm-container" id="cardBottomIcons">
+                                        <ul style="margin: 0;" class="list-inline card-sm cardFrontReverseIcon ">
+                                            <li class="left">
+                                                <p>Box A1</p>
+                                            </li>
+                                            <li><a class="rotate-btn icons-sm darkGray" data-card="card-1"><i class="fa fa-undo"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.Front Side-->
+
+                            <!--Back Side-->
+                            <div class="face card-rotating__back z-depth-1">
+                                <h4 class="cardReverseBoxName">
+                                    <%= @toy.name %>
+                                </h4>
+                                <p class="card-content text-center">
+                                    <%= @toy.age_group.age %>
+                                    <span>Box <%= @toy.box.name %></span>
+                                </p>
+                                <hr id="coloredHr" style="margin-bottom:10px;">
+                                <ul class="collection" style="border:none; margin-left:25px; margin-right:25px;"">
+                                    <li class="collection-item">
+                                        <div class="text-left">UPC
+                                         <span class="secondary-content">123432423</span>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="text-left">Pieces: <span class="secondary-content">
+                                            <%= @toy.pieces %>
+                                        </span>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="text-left">Manufacturer: 
+                                        <span class="secondary-content">
+                                            <%= @toy.manufacturer %>
+                                        </span>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="text-left">Purchase Price: 
+                                        <span class="secondary-content">
+                                            <%= @toy.price %>
+                                        </span>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="text-left">Purchased From: 
+                                        <span class="secondary-content"><%= @toy.purchased_from %>
+                                        </span>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="text-left">Country of Origin:
+                                             <span class="secondary-content">
+                                            <%= @toy.country_of_origin %>
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <!--Triggering button-->
+                                <div class="col-xs-12">
+                                    <div class="sm-container" id="cardBottomIcons">
+                                        <ul class="list-inline card-sm">
+                                            <%= link_to edit_toy_path(@toy) do %>
+			  																			<li><a class="icons-sm darkGray"><i class="fa fa-edit"></i></a></li>
+																						<% end %>
+																						<%= link_to toy_path(@toy), method: :delete do %>
+			  																			<li><a class="icons-sm darkGray"><i class="fa fa-trash"></i></a></li>
+																						<% end %>
+                                            <li><a class="rotate-btn icons-sm darkGray" data-card="card-1"><i class="fa fa-undo"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.Back Side-->
+
+                        </div>
+                    </div>
+                </div>
+                <!--/.Rotating card-->
+            </div>
 
 
 <p><%= link_to "Edit Toy", edit_toy_path(@toy) %></p>

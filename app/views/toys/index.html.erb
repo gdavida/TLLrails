@@ -13,10 +13,21 @@
 </div>
 
 <div class="container">
+  <ul class="collection with-header">
+    <li class="collection-header">
+      <h4>Toys Inventory</h4>
+    </li>
 
   <% if @toys.any? %>
     <% @toys.each do |t| %>
-      <p>Name: <%= link_to t.name, toy_path(t) %></p>
+ 				<li class="collection-item">
+          <div><%= link_to t.name, toy_path(t) %>
+	          <a href="#!" class="secondary-content">
+	          	<%= t.age_group.age %>
+	          </a>
+          </div>
+        </li>
     <% end %>
-  <% end %>
+	<% end %>
+  </ul>
 </div>

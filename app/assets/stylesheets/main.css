@@ -1,0 +1,67 @@
+
+
+.boxRoundName {
+	background-color: green;
+}
+
+
+#coloredHr {
+	border-top: 1px solid #F9E2B5;
+}
+
+.cardReverseBoxName {
+	color: #EDAD36;
+}
+
+.darkGray {
+	color: #585757;
+}
+
+#cardBottomIcons {
+	padding-top: 0;
+}
+
+.cardRow {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.cardWrapper {
+	max-width: 520px;
+}
+
+a {
+	color: #585757;
+}
+
+.reverseCardAddToy {
+    background-color: #F5F5F5;
+    border-left: 30px solid white;
+    border-right: 30px solid white;
+    margin-top: 10px;
+}
+
+.addToyIcon {
+    padding-left: 0px;
+    padding-right: 30px;
+    right: 20px;
+}
+
+.addToyText {
+	padding-top: 10px;
+}
+
+.smallPiecesText {
+	font-size: 9px;
+	position: relative;
+	bottom: 9px;
+}
+
+.transparentSpace {
+	color: transparent;
+}
+
+.cardFrontReverseIcon {
+	margin-left: 107px;
+}
+}
